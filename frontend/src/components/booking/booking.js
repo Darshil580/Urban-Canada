@@ -30,7 +30,7 @@ export default function Bookings(props) {
           note: note
         }
 
-        axios.post("http://localhost:3001/booking/create", booking).then((res) => {
+        axios.post("https://urban-canada-backend.onrender.com/booking/create", booking).then((res) => {
           const notification = {
             booking_id: res.data.booking._id,
             recipient_id: service.vendorID,
@@ -38,7 +38,7 @@ export default function Bookings(props) {
             type: "Booking Created"
           }
 
-          axios.post("http://localhost:3001/notifications", notification).then((res) => {
+          axios.post("https://urban-canada-backend.onrender.com/notifications", notification).then((res) => {
             if (res) {
               localStorage.setItem("booking_alert", "Booking Created Successfully")
               window.location.href = "/consumer_bookings"

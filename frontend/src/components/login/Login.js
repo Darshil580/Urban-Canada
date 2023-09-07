@@ -48,7 +48,7 @@ export default function Login() {
         password: inputPasswordValue,
       };
       axios
-        .post("http://localhost:3001/login", userData)
+        .post("https://urban-canada-backend.onrender.com/login", userData)
         .then((response) => {
           if (response.status === 200) {
             const { token, user } = response.data;

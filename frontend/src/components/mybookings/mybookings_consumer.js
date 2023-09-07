@@ -62,7 +62,7 @@ export default function MyBookings() {
   }, 3000);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/booking/service-consumer/${consumer_id}`).then((res) => {
+    axios.get(`https://urban-canada-backend.onrender.com/booking/service-consumer/${consumer_id}`).then((res) => {
       var data = []
       if (res.data && res.data.length > 0) {
         res.data.forEach(element => {
@@ -99,7 +99,7 @@ export default function MyBookings() {
         date: date + " " + time
       }
       const booking_id = selectedBooking._id
-      axios.put(`http://localhost:3001/booking/reschedule/${booking_id}`, data).then((res) => {
+      axios.put(`https://urban-canada-backend.onrender.com/booking/reschedule/${booking_id}`, data).then((res) => {
         if (res.data) {
           const notification = {
             booking_id: booking_id,
@@ -107,7 +107,7 @@ export default function MyBookings() {
             message: "Booking has been recheduled",
             type: "Booking Reschedule"
           }
-          axios.post("http://localhost:3001/notifications", notification).then((res) => {
+          axios.post("https://urban-canada-backend.onrender.com/notifications", notification).then((res) => {
             if (res) {
               localStorage.setItem("booking_alert", "Booking Rescheduled Successfully")
               window.location.href = "/consumer_bookings"
@@ -129,14 +129,14 @@ export default function MyBookings() {
 
   const cancelBookingHandler = () => {
     const booking_id = selectedBooking._id
-    axios.put(`http://localhost:3001/booking/cancel/${booking_id}`).then((res) => {
+    axios.put(`https://urban-canada-backend.onrender.com/booking/cancel/${booking_id}`).then((res) => {
       const notification = {
         booking_id: booking_id,
         recipient_id: selectedBooking.provider_id._id,
         message: "Booking has been canceled",
         type: "Booking Canceled"
       }
-      axios.post("http://localhost:3001/notifications", notification).then((res) => {
+      axios.post("https://urban-canada-backend.onrender.com/notifications", notification).then((res) => {
         if (res) {
           localStorage.setItem("booking_alert", "Booking Canceled Successfully")
           window.location.href = "/consumer_bookings"

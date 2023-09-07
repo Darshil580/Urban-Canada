@@ -62,7 +62,7 @@ export default function Header(props) {
   ];
 
   const fetchNotifications = () => {
-    axios.get("http://localhost:3001/notifications/" + userData._id).then((res) => {
+    axios.get("https://urban-canada-backend.onrender.com/notifications/" + userData._id).then((res) => {
       if (res.data) {
         setNotifications(res.data.data.reverse());
 
@@ -145,7 +145,7 @@ export default function Header(props) {
   };
 
   const clearNotification = async (notification_id) => {
-    await axios.delete(`http://localhost:3001/notifications/${notification_id}`)
+    await axios.delete(`https://urban-canada-backend.onrender.com/notifications/${notification_id}`)
   }
 
   const handleNotificationClick = () => {

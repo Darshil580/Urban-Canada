@@ -154,8 +154,8 @@ export default function ServiceList({ services }) {
     // deciding which request to use
     const httpMethod = isEditing ? "put" : "post";
     const url = isEditing
-      ? `http://localhost:3001/editService/${selectedService._id}`
-      : "http://localhost:3001/createService";
+      ? `https://urban-canada-backend.onrender.com/editService/${selectedService._id}`
+      : "https://urban-canada-backend.onrender.com/createService";
 
     axios[httpMethod](url, selectedService)
       .then((response) => {
@@ -182,7 +182,7 @@ export default function ServiceList({ services }) {
   const onDelete = (serviceId) => {
     console.log("Deleting service with ID:", serviceId);
     const isConfirmed = window.confirm('Are you sure you want to delete this service?');
-    const url = `http://localhost:3001/deleteService/${serviceId}`;
+    const url = `https://urban-canada-backend.onrender.com/deleteService/${serviceId}`;
     if (isConfirmed) {
       axios
         .delete(url)

@@ -23,7 +23,7 @@ export default function ServicePostingPage() {
 
   useEffect(() => {
   axios
-    .get('http://localhost:3001/allServices')
+    .get('https://urban-canada-backend.onrender.com/allServices')
     .then((response) => {
       const userDataString = localStorage.getItem("userData");
       console.log(userDataString);

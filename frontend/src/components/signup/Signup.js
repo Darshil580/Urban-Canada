@@ -171,7 +171,7 @@ export default function Signup() {
       let gender = document.querySelector('input[name="gender"]:checked').value;
       console.log(gender);
       try {
-        const response = await axios.post("http://localhost:3001/signup", {
+        const response = await axios.post("https://urban-canada-backend.onrender.com/signup", {
           firstName: inputFirstNameValue,
           lastName: inputLastNameValue,
           email: inputEmailValue,

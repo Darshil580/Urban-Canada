@@ -30,7 +30,7 @@ const App = () => {
   useEffect(() => {
     const fetchRatingReviewData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/rating/getRating/${vendorId}`);
+        const response = await axios.get(`https://urban-canada-backend.onrender.com/rating/getRating/${vendorId}`);
         setRatingReviewData(response.data);
       } catch (error) {
         console.error('Error fetching rating review data:', error);
@@ -39,7 +39,7 @@ const App = () => {
 
     const checkIsReviewed = async () => {
       try {
-        const response = await axios.post(`http://localhost:3001/rating/isReviewed/`, { bookingId });
+        const response = await axios.post(`https://urban-canada-backend.onrender.com/rating/isReviewed/`, { bookingId });
         setIsSubmitted(response.data.isReviewed);
         setIsReviwed(response.data.isReviewed)
       } catch (error) {
@@ -49,7 +49,7 @@ const App = () => {
 
     const loadProviderDetails = async () => {
       try {
-        const response = await axios.post(`http://localhost:3001/rating/getVendorInfo/`, { vendorId });
+        const response = await axios.post(`https://urban-canada-backend.onrender.com/rating/getVendorInfo/`, { vendorId });
 
         const vendor = response.data.vendor.firstName +" "+ response.data.vendor.lastName;
 
@@ -81,7 +81,7 @@ const App = () => {
     const userName = userData.firstName + " " + userData.lastName
     try {
 
-      await axios.post(`http://localhost:3001/rating/postRating`, {
+      await axios.post(`https://urban-canada-backend.onrender.com/rating/postRating`, {
         name: userName,
         comment: newComment,
         star: selectedStar,
@@ -98,7 +98,7 @@ const App = () => {
           message: "Consumer posted review",
           type: "Review Added"
         }
-        axios.post("http://localhost:3001/notifications",notification).then((res)=>{
+        axios.post("https://urban-canada-backend.onrender.com/notifications",notification).then((res)=>{
           if(res){
             window.location.href="/provider_bookings"
           }

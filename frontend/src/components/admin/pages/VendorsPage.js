@@ -63,7 +63,7 @@ const VendorsPage = () => {
 
     useEffect(()=>{
         const token = localStorage.getItem("authToken")
-        axios.get("http://localhost:3001/admin/active-vendors",{headers: {token: "Bearer "+token}}).then((res)=>{
+        axios.get("https://urban-canada-backend.onrender.com/admin/active-vendors",{headers: {token: "Bearer "+token}}).then((res)=>{
             const data = []
             res.data.forEach(vendor => {
                 data.push({id: vendor._id,fname: vendor.firstName, lname: vendor.lastName, gender: vendor.gender, email: vendor.email, role: vendor.role})
@@ -78,7 +78,7 @@ const VendorsPage = () => {
             }
         })
 
-        axios.get("http://localhost:3001/admin/blocked-vendors",{headers: {token: "Bearer "+token}}).then((res)=>{
+        axios.get("https://urban-canada-backend.onrender.com/admin/blocked-vendors",{headers: {token: "Bearer "+token}}).then((res)=>{
             const data = []
             res.data.forEach(vendor => {
                 data.push({id: vendor._id,fname: vendor.firstName, lname: vendor.lastName, gender: vendor.gender, email: vendor.email, role: vendor.role})

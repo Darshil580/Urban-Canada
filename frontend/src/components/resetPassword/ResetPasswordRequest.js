@@ -13,7 +13,7 @@ function ResetPasswordRequest() {
 
   const sendResetCode = async () => {
     try {
-      await axios.post("http://localhost:3001/reset-password-request", {
+      await axios.post("https://urban-canada-backend.onrender.com/reset-password-request", {
         email: email,
       });
       navigate("/reset-password-confirm");

@@ -23,7 +23,7 @@ export const DashboardPage = () => {
   
   useEffect(()=>{
     const token = localStorage.getItem("authToken")
-    axios.get("http://localhost:3001/admin/active-vendors",{headers: {token: "Bearer "+token}}).then((res)=>{
+    axios.get("https://urban-canada-backend.onrender.com/admin/active-vendors",{headers: {token: "Bearer "+token}}).then((res)=>{
       
         const data = []
         res.data.forEach(vendor => {
@@ -38,7 +38,7 @@ export const DashboardPage = () => {
       }
     })
 
-    axios.get("http://localhost:3001/admin/active-consumers",{headers: {token: "Bearer "+token}}).then((res)=>{
+    axios.get("https://urban-canada-backend.onrender.com/admin/active-consumers",{headers: {token: "Bearer "+token}}).then((res)=>{
         const data = []
         res.data.forEach(consumer => {
             data.push({id: consumer._id,fname: consumer.firstName, lname: consumer.lastName, gender: consumer.gender, email: consumer.email, role: consumer.role})
@@ -52,7 +52,7 @@ export const DashboardPage = () => {
       }
     })
 
-    axios.get("http://localhost:3001/admin/unverified-vendors",{headers: {token: "Bearer "+token}}).then((res)=>{
+    axios.get("https://urban-canada-backend.onrender.com/admin/unverified-vendors",{headers: {token: "Bearer "+token}}).then((res)=>{
         const data = []
         res.data.forEach(vendor => {
             data.push({id: vendor._id,fname: vendor.firstName, lname: vendor.lastName, gender: vendor.gender, email: vendor.email})
@@ -66,7 +66,7 @@ export const DashboardPage = () => {
       }
     })
 
-    axios.get("http://localhost:3001/admin/top-service-statistics",{headers: {token: "Bearer "+token}}).then((res)=>{
+    axios.get("https://urban-canada-backend.onrender.com/admin/top-service-statistics",{headers: {token: "Bearer "+token}}).then((res)=>{
         if(res.data){
           setData(res.data)
         }
@@ -78,7 +78,7 @@ export const DashboardPage = () => {
         }
       })
       
-      axios.get("http://localhost:3001/admin/city-statistics",{headers: {token: "Bearer "+token}}).then((res)=>{
+      axios.get("https://urban-canada-backend.onrender.com/admin/city-statistics",{headers: {token: "Bearer "+token}}).then((res)=>{
         if(res.data){
           setCityList(res.data)
         }

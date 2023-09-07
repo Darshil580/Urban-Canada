@@ -14,7 +14,7 @@ function ResetPasswordConfirm() {
 
   const confirmResetCode = async () => {
     try {
-      await axios.post("http://localhost:3001/reset-password-confirm", {
+      await axios.post("https://urban-canada-backend.onrender.com/reset-password-confirm", {
         email: email,
         resetPasswordToken: code,
       });

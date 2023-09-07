@@ -19,7 +19,7 @@ function UpdatePassword() {
       return;
     }
     try {
-      await axios.put("http://localhost:3001/update-password", {
+      await axios.put("https://urban-canada-backend.onrender.com/update-password", {
         email: email,
         password: password,
       });

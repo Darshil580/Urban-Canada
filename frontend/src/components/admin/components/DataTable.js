@@ -83,7 +83,7 @@ const DataTable = (props) => {
     const requestActionHandler = async() => {
         var id = selectedProvidor.id
         if(action == "approve" && id!=null){
-            await axios.post(`http://localhost:3001/admin/approve-vendor/${id}`,{},{headers: {token: "Bearer "+token}}).then((res)=>{
+            await axios.post(`https://urban-canada-backend.onrender.com/admin/approve-vendor/${id}`,{},{headers: {token: "Bearer "+token}}).then((res)=>{
                 if(res.data == 'approved'){
                     localStorage.setItem("alert_message","Request Approved Successfully")
                     window.location.href = "/admin/vendor-request"
@@ -96,7 +96,7 @@ const DataTable = (props) => {
         }
 
         if(action == "reject" && id!=null){
-            await axios.post(`http://localhost:3001/admin/reject-vendor/${id}`,{},{headers: {token: "Bearer "+token}}).then((res)=>{
+            await axios.post(`https://urban-canada-backend.onrender.com/admin/reject-vendor/${id}`,{},{headers: {token: "Bearer "+token}}).then((res)=>{
                 if(res.data == 'removed'){
                     localStorage.setItem("alert_message","Request Rejected Successfully")
                     window.location.href = "/admin/vendor-request"
@@ -114,7 +114,7 @@ const DataTable = (props) => {
     const blockVendorHandler = async() => {
         var id = selectedVendor.id
         if(selectedVendor.role == "service-provider"){
-            await axios.post(`http://localhost:3001/admin/block-vendor/${id}`,{},{headers: {token: "Bearer "+token}}).then((res)=>{
+            await axios.post(`https://urban-canada-backend.onrender.com/admin/block-vendor/${id}`,{},{headers: {token: "Bearer "+token}}).then((res)=>{
                 if(res.data == 'blocked'){
                     localStorage.setItem("alert_message","Vendor blocked Successfully")
                     window.location.href = "/admin/vendors"
@@ -131,7 +131,7 @@ const DataTable = (props) => {
         }
 
         if(selectedVendor.role == "service-consumer"){
-            await axios.post(`http://localhost:3001/admin/block-consumer/${id}`,{},{headers: {token: "Bearer "+token}}).then((res)=>{
+            await axios.post(`https://urban-canada-backend.onrender.com/admin/block-consumer/${id}`,{},{headers: {token: "Bearer "+token}}).then((res)=>{
                 if(res.data == 'blocked'){
                     localStorage.setItem("alert_message","Customer blocked Successfully")
                     window.location.href = "/admin/customers"
@@ -153,7 +153,7 @@ const DataTable = (props) => {
     const unBlockVendorHandler = async() => {
         var id = selectedBlockedVendor.id
         if(selectedBlockedVendor.role == "service-provider"){
-            await axios.post(`http://localhost:3001/admin/unblock-vendor/${id}`,{},{headers: {token: "Bearer "+token}}).then((res)=>{
+            await axios.post(`https://urban-canada-backend.onrender.com/admin/unblock-vendor/${id}`,{},{headers: {token: "Bearer "+token}}).then((res)=>{
                 if(res.data == 'unblocked'){
                     localStorage.setItem("alert_message","Vendor unblocked Successfully")
                     window.location.href = "/admin/vendors"
@@ -170,7 +170,7 @@ const DataTable = (props) => {
         }
 
         if(selectedBlockedVendor.role == "service-consumer"){
-            await axios.post(`http://localhost:3001/admin/unblock-consumer/${id}`,{},{headers: {token: "Bearer "+token}}).then((res)=>{
+            await axios.post(`https://urban-canada-backend.onrender.com/admin/unblock-consumer/${id}`,{},{headers: {token: "Bearer "+token}}).then((res)=>{
                 if(res.data == 'unblocked'){
                     localStorage.setItem("alert_message","Customer unblocked Successfully")
                     window.location.href = "/admin/customers"

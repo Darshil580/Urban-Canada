@@ -69,7 +69,7 @@ export default function MyBookings() {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/booking/service-provider/${consumer_id}`).then((res) => {
+    axios.get(`https://urban-canada-backend.onrender.com/booking/service-provider/${consumer_id}`).then((res) => {
       var data = []
       if (res.data && res.data.length > 0) {
         res.data.forEach(element => {
@@ -102,14 +102,14 @@ export default function MyBookings() {
 
   const approveBookingHandler = () => {
     const booking_id = selectedBooking._id
-    axios.put(`http://localhost:3001/booking/approve/${booking_id}`).then((res) => {
+    axios.put(`https://urban-canada-backend.onrender.com/booking/approve/${booking_id}`).then((res) => {
       const notification = {
         booking_id: booking_id,
         recipient_id: selectedBooking.consumer_id._id,
         message: "Booking has been approved",
         type: "Booking Approved"
       }
-      axios.post("http://localhost:3001/notifications", notification).then((res) => {
+      axios.post("https://urban-canada-backend.onrender.com/notifications", notification).then((res) => {
         if (res) {
           localStorage.setItem("booking_alert", "Booking Approved Successfully")
           window.location.href = "/provider_bookings"
@@ -125,14 +125,14 @@ export default function MyBookings() {
 
   const cancelBookingHandler = () => {
     const booking_id = selectedBooking._id
-    axios.put(`http://localhost:3001/booking/cancel/${booking_id}`).then((res) => {
+    axios.put(`https://urban-canada-backend.onrender.com/booking/cancel/${booking_id}`).then((res) => {
       const notification = {
         booking_id: booking_id,
         recipient_id: selectedBooking.consumer_id._id,
         message: "Booking has been canceled",
         type: "Booking Canceled"
       }
-      axios.post("http://localhost:3001/notifications", notification).then((res) => {
+      axios.post("https://urban-canada-backend.onrender.com/notifications", notification).then((res) => {
         if (res) {
           localStorage.setItem("booking_alert", "Booking Rejected Successfully")
           window.location.href = "/provider_bookings"
@@ -148,14 +148,14 @@ export default function MyBookings() {
 
   const completeBookingHandler = () => {
     const booking_id = selectedBooking._id
-    axios.put(`http://localhost:3001/booking/complete/${booking_id}`).then((res) => {
+    axios.put(`https://urban-canada-backend.onrender.com/booking/complete/${booking_id}`).then((res) => {
       const notification = {
         booking_id: booking_id,
         recipient_id: selectedBooking.consumer_id._id,
         message: "Booking has been completed",
         type: "Booking Completed"
       }
-      axios.post("http://localhost:3001/notifications", notification).then((res) => {
+      axios.post("https://urban-canada-backend.onrender.com/notifications", notification).then((res) => {
         if (res) {
           localStorage.setItem("booking_alert", "Booking Completed Successfully")
           window.location.href = "/provider_bookings"

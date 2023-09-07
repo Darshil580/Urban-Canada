@@ -33,7 +33,7 @@ function FavoriteList() {
       const userId = JSON.parse(user)._id;
 
       const response = await axios.post(
-        `http://localhost:3001/wishlist/remove`,
+        `https://urban-canada-backend.onrender.com/wishlist/remove`,
         { userId, serviceId }
       );
 
@@ -58,7 +58,7 @@ function FavoriteList() {
       const userId = JSON.parse(user)._id;
 
       const response = await axios.get(
-        `http://localhost:3001/wishlist/getUserWishlist/${userId}`
+        `https://urban-canada-backend.onrender.com/wishlist/getUserWishlist/${userId}`
       );
 
       if (response.data.success) {
@@ -78,7 +78,7 @@ function FavoriteList() {
   }, []);
 
   const fetchData = async () => {
-    let data = await fetch("http://localhost:3001/allServices", {
+    let data = await fetch("https://urban-canada-backend.onrender.com/allServices", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -90,7 +90,7 @@ function FavoriteList() {
       let rating = 0;
       let vendorId = serviceList[x]["vendorID"];
       let data = await fetch(
-        "http://localhost:3001/rating/averagerating/" + vendorId,
+        "https://urban-canada-backend.onrender.com/rating/averagerating/" + vendorId,
         {
           method: "GET",
           headers: {
@@ -130,7 +130,7 @@ function FavoriteList() {
       fetchData();
       return;
     }
-    let data = await fetch("http://localhost:3001/searchServices", {
+    let data = await fetch("https://urban-canada-backend.onrender.com/searchServices", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -158,7 +158,7 @@ function FavoriteList() {
       return;
     }
     setFiltered(true);
-    let data = await fetch("http://localhost:3001/filterServices", {
+    let data = await fetch("https://urban-canada-backend.onrender.com/filterServices", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

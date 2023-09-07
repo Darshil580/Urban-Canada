@@ -64,7 +64,7 @@ const CustomersPage = () => {
 
     useEffect(()=>{
         const token = localStorage.getItem("authToken")
-        axios.get("http://localhost:3001/admin/active-consumers",{headers: {token: "Bearer "+token}}).then((res)=>{
+        axios.get("https://urban-canada-backend.onrender.com/admin/active-consumers",{headers: {token: "Bearer "+token}}).then((res)=>{
             const data = []
             res.data.forEach(consumer => {
                 data.push({id: consumer._id,fname: consumer.firstName, lname: consumer.lastName, gender: consumer.gender, email: consumer.email, role: consumer.role})
@@ -79,7 +79,7 @@ const CustomersPage = () => {
             }
         })
 
-        axios.get("http://localhost:3001/admin/blocked-consumers",{headers: {token: "Bearer "+token}}).then((res)=>{
+        axios.get("https://urban-canada-backend.onrender.com/admin/blocked-consumers",{headers: {token: "Bearer "+token}}).then((res)=>{
             const data = []
             res.data.forEach(consumer => {
                 data.push({id: consumer._id,fname: consumer.firstName, lname: consumer.lastName, gender: consumer.gender, email: consumer.email, role: consumer.role})

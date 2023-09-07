@@ -79,7 +79,7 @@ function Profile() {
       const validatedUser = await validateUser(user);
 
       const response = await axios.put(
-        `http://localhost:3001/${validatedUser._id}`,
+        `https://urban-canada-backend.onrender.com/${validatedUser._id}`,
         validatedUser
       );
 
@@ -104,7 +104,7 @@ function Profile() {
 
     if (confirmation) {
       try {
-        await axios.delete(`http://localhost:3001/${user._id}`);
+        await axios.delete(`https://urban-canada-backend.onrender.com/${user._id}`);
         logout(); // Call the logout function
         alert("Your account has been deleted");
         navigate("/");
