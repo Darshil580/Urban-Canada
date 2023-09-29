@@ -29,7 +29,7 @@ const notificationRoutes = require("./routes/notificationRoutes");
 const wishlistRoutes = require("./routes/wishlistRoutes.js");
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://inquisitive-kheer-c0727b.netlify.app",
   optionsSuccessStatus: 200,
 };
 
